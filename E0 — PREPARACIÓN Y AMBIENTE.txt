@@ -1,0 +1,348 @@
+E0 — PREPARACIÓN Y AMBIENTE
+HU-E0-01: Setup inicial de repositorio
+Como desarrollador quiero tener estructura de proyecto limpia para colaborar sin conflictos.
+
+Repositorio Git creado (GitHub/GitLab)
+Carpetas frontend, backend, docs
+.gitignore configurado
+README base con instrucciones
+Branch main y develop listos
+
+HU-E0-02: Configuración Firebase Auth
+Como desarrollador quiero autenticación lista para proteger acceso a datos.
+
+Proyecto Firebase creado
+Web SDK integrado
+Email/password habilitado
+Roles de usuario definidos
+Token JWT funcional
+
+HU-E0-03: Configuración Supabase (BD)
+Como arquitecto quiero base de datos escalable para almacenar datos de forma confiable.
+
+Proyecto Supabase creado
+PostgreSQL configurado
+Tablas base creadas (usuarios, vehiculos, espacios)
+RLS (Row Level Security) configurado
+Backup automático habilitado
+
+HU-E0-04: Setup Google Cloud Functions
+Como backend developer quiero funciones serverless para lógica sin servidor.
+
+Proyecto Google Cloud creado
+Node.js 18+ runtime
+Variables de entorno (.env)
+Función "Hello World" deployada
+Logs y monitoring habilitados
+
+HU-E0-05: Integración Antigravity Tool
+Como devops quiero automatización de procesos para optimizar flujos.
+
+Antigravity conectado a proyecto
+Pipelines de automación definidas
+Webhooks configurados
+Monitoreo de recursos activo
+
+
+E1 — PORTAL WEB ADMIN
+HU-E1-01: Autenticación de usuarios por rol
+Como usuario (Jefe Servicios/Admin) quiero login seguro para acceder solo a mis funciones.
+
+Pantalla login responsive
+Validación email/contraseña
+Firebase Auth integrado
+Redirección según rol
+Sesión persiste 24 horas
+Logout funcional
+Recuperación contraseña
+
+HU-E1-02: Panel dinámico de ocupación real-time
+Como Guardia quiero ver los 110 espacios en tiempo real para gestionar acceso.
+
+Grid 110 cupos visualizado
+Código identificador por cupo
+Color verde (libre) / rojo (ocupado)
+Actualización cada 2 segundos
+Filtro por zona (Subterráneo, Patio, etc.)
+Buscar por código o patente
+Zoom in/out mapa
+
+HU-E1-03: Gestión de reservas de espacios
+Como Jefe de Seguridad quiero reservar cupos especiales para visitas VIP.
+
+Formulario crear reserva
+Seleccionar cupo disponible
+Asignar fechas/horas
+Observaciones (visitante, motivo)
+Notificación a guardia
+Historial de reservas
+Cancelar reserva
+
+HU-E1-04: Bloqueo de espacios por mantenimiento
+Como Jefe de Servicios Generales quiero bloquear cupos para evitar uso.
+
+Seleccionar cupos a bloquear
+Motivo del bloqueo
+Fecha/hora inicio y fin
+Notificación a conductores
+Visualización clara "fuera de servicio"
+Desbloqueo automático o manual
+
+HU-E1-05: Reportes y análisis de ocupación
+Como Director quiero reportes para tomar decisiones estratégicas.
+
+Reporte ocupación por día/hora
+Gráficos de tendencias
+Horarios pico identificados
+Espacios con mayor demanda
+Exportar PDF/Excel
+Análisis predictivo con IA
+Comparativa mes anterior
+
+
+E2 — APP MÓVIL CONDUCTOR
+HU-E2-01: Autenticación de conductor
+Como Conductor quiero login seguro para acceder a mi app.
+
+Login email/contraseña
+Firebase Auth integrado
+Opción "recordarme"
+Reset contraseña
+Datos personales guardados
+Logout seguro
+
+HU-E2-02: Consultar disponibilidad en tiempo real
+Como Conductor quiero saber cupos libres antes de llegar para no perder tiempo.
+
+Lista de cupos disponibles actualizada
+Número de cupos libres visible
+Filtro por zona
+Indicador de ocupación %
+Actualización cada 30 segundos
+Notificación si llena
+
+HU-E2-03: Registrar acceso (entrada)
+Como Conductor quiero registrar mi entrada al estacionamiento.
+
+Botón "he llegado"
+Seleccionar cupo donde estaciono
+Confirmar patente
+Timestamp automático
+Confirmación visual
+Recordar último cupo usado
+
+HU-E2-04: Registrar salida (egreso)
+Como Conductor quiero registrar salida del estacionamiento.
+
+Botón "me voy"
+Confirmación de cupo
+Timestamp automático
+Duración estancia calculada
+Historial de movimientos
+
+HU-E2-05: Reportar incidencia
+Como Conductor quiero reportar problemas (daño auto, robo, otros).
+
+Formulario reportar incidencia
+Descripcción detallada
+Foto de evidencia (opcional)
+Cupo asociado
+Prioridad (normal/urgente)
+Estado del reporte
+Notificación a Guardia
+
+HU-E2-06: Historial personal
+Como Conductor quiero revisar mis movimientos y reportes.
+
+Historial últimos 30 días
+Filtro por fecha
+Ver duración estancia
+Ver reportes realizados
+Estadísticas personales
+
+
+E3 — APP MÓVIL GUARDIA
+HU-E3-01: Autenticación de guardia
+Como Guardia quiero login para acceder al panel de control.
+
+Login email/contraseña
+Firebase Auth
+Acceso solo a funciones guardia
+Logout seguro
+
+HU-E3-02: Panel visual de ocupación
+Como Guardia quiero ver todos los 110 espacios en una sola vista.
+
+Mapa visual de cupos
+Código y estado por cupo
+Colores ocupado/libre destacados
+Actualización real-time
+Filtro por zona
+Búsqueda por patente
+Números grandes legibles
+
+HU-E3-03: Registrar entrada de vehículos
+Como Guardia quiero registrar entrada de conductores que llegan.
+
+Lector de QR o patente manual
+Registrar cupo asignado
+Foto de patente (opcional)
+Timestamp automático
+Confirmación visual
+Historial de entradas hoy
+
+HU-E3-04: Registrar salida de vehículos
+Como Guardia quiero registrar salida de conductores.
+
+Lector de QR o patente manual
+Liberar cupo
+Timestamp automático
+Duración estancia mostrada
+Confirmación visual
+
+HU-E3-05: Gestionar incidencias reportadas
+Como Guardia quiero recibir y gestionar problemas reportados.
+
+Lista de incidencias en tiempo real
+Detalles de incidencia (foto, descripción)
+Ubicación del vehículo
+Contacto del conductor (teléfono)
+Cambiar estado (abierta → en_proceso → cerrada)
+Notas de resolución
+Notificación al conductor
+
+HU-E3-06: Comunicación directa con conductor
+Como Guardia quiero contactar conductor para incidencias.
+
+Chat o llamada directa
+Enviar ubicación de cupo
+Foto de la zona
+Historial de comunicación
+
+
+E4 — APP JEFE SEGURIDAD / SERVICIOS
+HU-E4-01: Autenticación jefe de seguridad
+Como Jefe de Seguridad quiero acceso administrativo para gestionar.
+
+Login con rol verificado
+Acceso a todas las vistas
+Logout seguro
+
+HU-E4-02: Gestión de reservas
+Como Jefe de Seguridad quiero reservar cupos para visitas especiales.
+
+Crear reserva (cupo, fechas, visitante)
+Editar reserva existente
+Cancelar reserva
+Notificación automática a Guardia
+Historial de todas las reservas
+Reportes de reservas
+
+HU-E4-03: Bloqueo de espacios
+Como Jefe de Servicios Generales quiero bloquear cupos por mantenimiento.
+
+Seleccionar uno o varios cupos
+Establecer motivo y fechas
+Notificar a conductores
+Vista clara "fuera de servicio"
+Desbloquear cuando termine
+Historial de bloqueos
+
+HU-E4-04: Reportes avanzados
+Como Jefe de Servicios quiero análisis para planificación.
+
+Ocupación por hora del día
+Días de mayor demanda
+Espacios más usados
+Tendencias semanales/mensuales
+Predicción de ocupación (IA)
+Exportar a PDF/Excel
+Gráficos interactivos
+
+HU-E4-05: Gestión de usuarios
+Como Super Admin quiero administrar accesos al sistema.
+
+Crear nuevo usuario
+Asignar rol (conductor, guardia, jefe, etc.)
+Activar/desactivar usuario
+Reset de contraseña
+Auditoría de accesos
+Historial de cambios
+
+HU-E4-06: Análisis de incidencias
+Como Jefe de Seguridad quiero investigar problemas del sistema.
+
+Reporte de incidencias por tipo
+Cupos problemáticos identificados
+Conductores con múltiples reportes
+Horarios críticos
+Tendencias de seguridad
+Exportar para auditoría
+
+
+E5 — INTEGRACIÓN Y OPTIMIZACIÓN
+HU-E5-01: Endpoints CRUD funcionales
+Como Backend Developer quiero APIs confiables para operaciones.
+
+GET /espacios (lista 110 cupos)
+POST /registros_acceso (entrada)
+DELETE /registros_acceso (salida)
+GET /incidencias (listar reportes)
+POST /incidencias (crear reporte)
+PATCH /incidencias/:id (actualizar estado)
+GET /ocupacion (estado real-time)
+Respuestas JSON estándar
+Manejo de errores (400, 401, 404, 500)
+
+HU-E5-02: Autenticación en Cloud Functions
+Como Arquitecto quiero seguridad en backend.
+
+Verificar token Firebase en cada función
+Validar rol del usuario
+RLS activo en Supabase
+Rate limiting implementado
+Logs de acceso
+Detectar anomalías
+
+HU-E5-03: Integración IA (Google AI Studio)
+Como Sistema quiero análisis predictivos con IA.
+
+Cloud Function conectada a API IA
+Prompt estructurado para análisis
+Predicción ocupación próximas horas
+Recomendaciones operativas
+Respuesta en menos de 5 segundos
+Logs de consultas IA
+
+HU-E5-04: Despliegue en Google Cloud
+Como DevOps quiero infraestructura en producción.
+
+Todas las Cloud Functions deployadas
+Supabase en producción
+Firebase en producción
+Dominio asignado
+SSL certificado
+CDN para frontend
+Backups automáticos
+
+HU-E5-05: Pruebas E2E completas
+Como QA quiero validar todo funciona en producción.
+
+Test login y autenticación
+Test registro entrada/salida
+Test reportar incidencia
+Test panel ocupación actualiza
+Test APIs responden correctamente
+Test datos persisten en BD
+Test notificaciones llegan
+Cobertura 80%+ de casos
+
+HU-E5-06: Carga de datos de prueba
+Como Tester quiero ambiente listo para validar.
+
+150+ conductores cargados
+200+ vehículos registrados
+110 espacios con estado inicial
+50+ registros acceso históricos
+20+ incidencias de ejemplo
+Datos realistas y variados
